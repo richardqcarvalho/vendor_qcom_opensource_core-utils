@@ -209,14 +209,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
        </interface>
    </hal>
    <hal format="hidl" optional="true">
-       <name>vendor.qti.hardware.seccam</name>
-       <version>1.0</version>
-       <interface>
-           <name>ISecCam</name>
-           <instance>default</instance>
-       </interface>
-   </hal>
-   <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.bluetooth_audio</name>
         <version>2.0-1</version>
         <interface>
@@ -366,9 +358,25 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
             <instance>slot1</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.data.factoryservice</name>
+        <version>1</version>
+        <interface>
+            <name>IFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.cacert</name>
         <version>1.0</version>
+        <interface>
+            <name>IService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.cacertaidlservice</name>
+        <version>1</version>
         <interface>
             <name>IService</name>
             <instance>default</instance>
@@ -515,7 +523,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.radio.qtiradio</name>
-        <version>1-10</version>
+        <version>1-11</version>
         <interface>
             <name>IQtiRadioStable</name>
             <instance>slot1</instance>
@@ -754,7 +762,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         <version>1.0-2</version>
         <version>2.0-1</version>
         <version>3.0</version>
-        <version>4.0-1</version>
+        <version>4.0-2</version>
         <interface>
             <name>ILocHidlGnss</name>
             <instance>gnss_vendor</instance>
@@ -836,6 +844,14 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         </interface>
     </hal>
     <!-- Memory PASR HAL -->
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.memory.pasrmanager</name>
+        <version>1</version>
+        <interface>
+            <name>IPasrManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.memory.pasrmanager</name>
         <transport>hwbinder</transport>
@@ -894,6 +910,16 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
            <instance>slot2</instance>
        </interface>
    </hal>
+   <hal format="aidl" optional="true">
+       <name>vendor.qti.hardware.data.iwlandata</name>
+       <version>1</version>
+       <interface>
+           <name>IIWlan</name>
+           <instance>slot1</instance>
+           <instance>slot2</instance>
+       </interface>
+   </hal>
+
    <hal format="hidl" optional="true">
        <name>vendor.qti.hardware.cvp</name>
        <version>1.0</version>
@@ -1048,10 +1074,36 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
             <instance>qtee-vm</instance>
         </interface>
     </hal>
+    <!-- Trusted UI HAL AIDL Service -->
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.trustedui</name>
+        <version>1</version>
+        <interface>
+            <name>ITrustedUI</name>
+            <instance>default</instance>
+            <instance>qtee-vm</instance>
+            <instance>qtee-tz</instance>
+        </interface>
+        <interface>
+            <name>ITrustedInput</name>
+            <instance>default</instance>
+            <instance>qtee-vm</instance>
+            <instance>qtee-tz</instance>
+        </interface>
+    </hal>
     <!-- Secure image data processor HAL Service -->
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.secureprocessor.device</name>
         <version>1.0</version>
+        <interface>
+            <name>ISecureProcessor</name>
+            <instance>qti-tee</instance>
+            <instance>qti-tvm</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.secureprocessor.device</name>
+        <version>1</version>
         <interface>
             <name>ISecureProcessor</name>
             <instance>qti-tee</instance>
@@ -1104,6 +1156,15 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         <interface>
             <name>IAONService</name>
             <instance>aoncameraservice</instance>
+        </interface>
+    </hal>
+    <!-- Camera AON AIDL service -->
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.camera.aon</name>
+        <version>1</version>
+        <interface>
+            <name>IAONService</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <!-- eMBMS HAL service -->
@@ -1185,6 +1246,14 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
             <instance>MwqemAdapter</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.mwqemadapteraidlservice</name>
+        <version>1</version>
+        <interface>
+            <name>IMwqemAdapter</name>
+            <instance>MwqemAdapter</instance>
+        </interface>
+    </hal>
     <!-- DpmService HAL service -->
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.dpmservice</name>
@@ -1195,6 +1264,16 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
             <instance>DpmService</instance>
         </interface>
     </hal>
+    <!-- DpmService HAL AIDL service -->
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.dpmaidlservice</name>
+        <version>1</version>
+        <interface>
+            <name>IDpmService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
     <hal format="hidl" optional="true">
        <name>vendor.qti.hardware.limits</name>
        <transport>hwbinder</transport>
@@ -1235,17 +1314,25 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-       <name>vendor.qti.hardware.wifi.wifimyftm</name>
-       <transport>hwbinder</transport>
-       <version>1.0</version>
-       <interface>
-           <name>IWifiMyFtm</name>
-           <instance>default</instance>
-       </interface>
+        <name>vendor.qti.hardware.wifi.wifimyftm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IWifiMyFtm</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.wifi.wifimyftm</name>
+        <version>1</version>
+        <interface>
+            <name>IWifiMyFtm</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.display.config</name>
-        <version>1-5</version>
+        <version>1-7</version>
         <interface>
             <name>IDisplayConfig</name>
             <instance>default</instance>
@@ -1260,13 +1347,21 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-       <name>vendor.qti.hardware.wifi.wificfr</name>
-       <transport>hwbinder</transport>
-       <version>1.0</version>
-       <interface>
+        <name>vendor.qti.hardware.wifi.wificfr</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IWificfr</name>
+            <instance>wificfr</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.wifi.wificfr</name>
+        <version>1</version>
+        <interface>
            <name>IWificfr</name>
-           <instance>wificfr</instance>
-       </interface>
+           <instance>default</instance>
+        </interface>
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.qesdhal</name>
@@ -1347,7 +1442,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.data.txpwrservice</name>
-        <version>1-4</version>
+        <version>1-6</version>
         <interface>
             <name>ITxPwrService</name>
             <instance>default</instance>
@@ -1355,9 +1450,17 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.bttpi</name>
-        <version>1-2</version>
+        <version>1-3</version>
         <interface>
             <name>IBtTpi</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.bluetooth.xpanprovider</name>
+        <version>1</version>
+        <interface>
+            <name>IXpanProvider</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -1402,5 +1505,46 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
             <instance>slot1</instance>
             <instance>slot2</instance>
         </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.ims.factoryaidlservice</name>
+        <version>1</version>
+        <interface>
+            <name>IImsFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.tetheroffload</name>
+        <version>1</version>
+        <interface>
+            <name>IOffload</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.soter</name>
+        <version>1</version>
+        <interface>
+            <name>ISoter</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- SPU SuthSecret HAL service -->
+    <hal format="aidl" optional="true">
+        <name>android.hardware.authsecret.qti.spu</name>
+        <version>1</version>
+        <interface>
+            <name>IAuthSecret</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+    <name>vendor.qti.hardware.qspa</name>
+    <version>1</version>
+    <interface>
+         <name>IQspa</name>
+         <instance>default</instance>
+    </interface>
     </hal>
 </compatibility-matrix>
