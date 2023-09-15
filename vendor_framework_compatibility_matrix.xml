@@ -146,6 +146,18 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.qteeconnector</name>
+        <version>1</version>
+        <interface>
+            <name>IAppConnector</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IGPAppConnector</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.debugutils</name>
         <version>1.0</version>
@@ -988,11 +1000,12 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         <version>2.0-1</version>
         <version>3.0</version>
         <version>3.1</version>
+        <version>3.2</version>
         <interface>
             <name>IQtiComposer</name>
             <instance>default</instance>
         </interface>
-    </hal>
+   </hal>
     <!-- QSPM-HAL hidl service-->
     <hal format="hidl" optional="true">
         <name>vendor.qti.qspmhal</name>
@@ -1065,8 +1078,20 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
              <name>ISystemResource</name>
              <instance>default</instance>
          </interface>
-     </hal>
-
+    </hal>
+    <!-- System Helper AIDL Service -->
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.systemhelperaidl</name>
+        <version>1</version>
+        <interface>
+            <name>ISystemEvent</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>ISystemResource</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <!-- Trusted UI HAL Service -->
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.trustedui</name>
@@ -1089,14 +1114,10 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         <interface>
             <name>ITrustedUI</name>
             <instance>default</instance>
-            <instance>qtee-vm</instance>
-            <instance>qtee-tz</instance>
         </interface>
         <interface>
             <name>ITrustedInput</name>
             <instance>default</instance>
-            <instance>qtee-vm</instance>
-            <instance>qtee-tz</instance>
         </interface>
     </hal>
     <!-- Secure image data processor HAL Service -->
@@ -1206,6 +1227,14 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
         <interface>
             <name>IQccvndhal</name>
             <instance>qccvndhal</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.qepi</name>
+        <version>1</version>
+        <interface>
+            <name>IQEPI</name>
+            <instance>qepi</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -1340,7 +1369,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear.
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.display.config</name>
-        <version>1-7</version>
+        <version>1-10</version>
         <interface>
             <name>IDisplayConfig</name>
             <instance>default</instance>
